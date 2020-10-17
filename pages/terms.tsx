@@ -16,13 +16,8 @@ export default function Terms() {
   }
 
   return (
-    <Page>
+    <Page title="terms page">
     <div className={styles.container}>
-      <Head>
-        <title>terms page</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <main className={styles.main}>
         <h1 className={styles.title}>
           terms page
