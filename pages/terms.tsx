@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import { Button } from '@shopify/polaris';
+import { Page, Button } from '@shopify/polaris';
 
 export default function Terms() {
   const [checked, setChecked] = useState(String);
@@ -16,6 +16,7 @@ export default function Terms() {
   }
 
   return (
+    <Page>
     <div className={styles.container}>
       <Head>
         <title>terms page</title>
@@ -44,6 +45,7 @@ export default function Terms() {
         </a>
       </footer>
     </div>
+    </Page>
   )
 }
 
