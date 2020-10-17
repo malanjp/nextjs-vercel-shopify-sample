@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import { Button } from '@shopify/polaris';
 
 export default function Terms() {
   const [checked, setChecked] = useState(String);
@@ -28,7 +29,7 @@ export default function Terms() {
         <div>
           <label>同意しますか？</label>
           <input type="checkbox" onChange={e => setChecked(e.target.value)} />
-          <input type="submit" value="submit" onClick={submit} />
+          <Button onClick={submit}>Submit</Button>
         </div>
       </main>
 
