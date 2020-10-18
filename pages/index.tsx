@@ -10,7 +10,7 @@ export default function Home() {
 }
 
 Home.getInitialProps = async ({ query, res }) => {
-  console.log(query.shop);
+  console.log(query);
   console.log(process.env.SHOPIFY_API_KEY);
   const { SHOPIFY_API_KEY } = process.env;
   const scopes = 'read_orders';
