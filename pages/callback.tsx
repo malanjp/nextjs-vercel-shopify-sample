@@ -7,8 +7,11 @@ export default function Callback() {
 Callback.getInitialProps = async ({ query, res }) => {
   validateShopname(query.shop);
   validateHmac(query, process.env.SHOPIFY_API_SECRET_KEY);
+  // TODO: nonce の検証
+  // ...
 
-  const redirect_uri = `${process.env.APP_URL}terms`;
+  // アプリ管理画面へ飛ばす
+  const redirect_uri = `https://${query.shop}/admin/apps/${process.env.SHOPIFY_APP_NAME}`;
   if (res) {
     res.writeHead(301, {
       Location: redirect_uri,
