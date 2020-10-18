@@ -65,9 +65,10 @@ const getAccessTokenRequest = async (shopId: string, code: string) => {
   const url = `https://${shopId}/admin/oauth/access_token`;
   const payload = {
     cliend_id: process.env.SHOPIFY_API_KEY,
-    client_secret: process.env.SHOPIFY_SECRET_API_KEY,
+    client_secret: process.env.SHOPIFY_API_SECRET_KEY,
     code: code,
   };
+  console.log(payload);
 
   const response = await fetch(url, {
     method: 'POST',
