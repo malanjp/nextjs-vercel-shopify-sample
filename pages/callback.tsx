@@ -6,6 +6,7 @@ export default function Callback() {
 }
 
 
+// Shopify の oauth から callback されてくる
 Callback.getInitialProps = async ({ query, res }) => {
   validateShopId(query.shop);
   validateHmac(query, process.env.SHOPIFY_API_SECRET_KEY);

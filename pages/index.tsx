@@ -15,6 +15,8 @@ Index.getInitialProps = async ({ query, res }) => {
     }
     return;
   }
+
+  // 新規インストールなら shopify の oauth へ飛ばす
   const { SHOPIFY_API_KEY } = process.env;
   const scopes = 'read_orders';
   const redirect_uri = `${process.env.APP_URL}/callback`;
