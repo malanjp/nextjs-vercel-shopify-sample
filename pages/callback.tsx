@@ -63,8 +63,9 @@ const validateHmac = (query: any, secret_key: string) => {
 
 const getAccessTokenRequest = async (shopId: string, code: string) => {
   const url = `https://${shopId}/admin/oauth/access_token`;
+  console.log(url);
   const payload = {
-    cliend_id: process.env.SHOPIFY_API_KEY,
+    client_id: process.env.SHOPIFY_API_KEY,
     client_secret: process.env.SHOPIFY_API_SECRET_KEY,
     code: code,
   };
