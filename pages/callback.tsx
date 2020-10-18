@@ -29,9 +29,9 @@ const validateHmac = (query: any, secret_key: string) => {
   console.log('secret_key', secret_key);
   const hmac = query.hmac;
   delete query.hmac;
-  const queryString = Object.entries(query).map((e) => `${e[0]}=${e[1]}`).join('&');
-  console.log('queryString', queryString);
-  var digest = crypto.createHmac('sha256', secret_key).update(queryString).digest('hex');
+  const message = `code=${query.code}&shop=${query.shop}&timestamp=${query.timestamp}`;
+  console.log('queryString', message);
+  var digest = crypto.createHmac('sha256', secret_key).update(message).digest('hex');
   console.log('hmac', hmac);
   console.log('digest', digest);
   if (hmac !== digest) throw 'unmatched hmac';
