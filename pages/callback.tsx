@@ -26,10 +26,14 @@ const validateShopname = (shopName: string) => {
 }
 
 const validateHmac = (query: any, secret_key: string) => {
+  console.log('secret_key', secret_key);
   const hmac = query.hmac;
   delete query.hmac;
   const queryString = Object.entries(query).map((e) => `${e[0]}=${e[1]}`).join('&');
+  console.log('queryString', queryString);
   var digest = crypto.createHmac('sha256', secret_key).update(queryString).digest('hex');
+  console.log('hmac', hmac);
+  console.log('digest', digest);
   if (hmac !== digest) throw 'unmatched hmac';
   return true;
 }
