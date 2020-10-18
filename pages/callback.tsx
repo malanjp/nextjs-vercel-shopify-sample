@@ -78,6 +78,7 @@ const getAccessTokenRequest = async (shopId: string, code: string) => {
     body: JSON.stringify(payload),
   });
   const data = await response.json();
+  console.log('fetched', data);
   
   return data;
 }
