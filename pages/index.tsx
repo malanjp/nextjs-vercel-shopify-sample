@@ -6,6 +6,17 @@ Index.getInitialProps = async ({ query, res }) => {
   console.log(query);
   console.log(process.env);
   console.log(process.env.SHOPIFY_API_KEY);
+  // インストール済みなら /terms へ飛ばす
+  if (query.session) {
+    const redirect_uri = `${process.env.APP_URL}terms`;
+    if (res) {
+      res.writeHead(301, {
+        Location: redirect_uri,
+      })
+      res.end();
+    }
+    return;
+  }
   const { SHOPIFY_API_KEY } = process.env;
   const scopes = 'read_orders';
   const redirect_uri = `${process.env.APP_URL}callback`;
@@ -17,5 +28,5 @@ Index.getInitialProps = async ({ query, res }) => {
     })
     res.end();
   }
-  return {};
+  return;
 }
