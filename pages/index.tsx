@@ -1,15 +1,8 @@
-import { Button } from '@shopify/polaris';
-import React from 'react';
-import { useRouter } from 'next/router'
-
-export default function Home() {
-  const app = (
-    <Button onClick={() => alert('Button clicked!')}>Example button</Button>
-  );
-  return app
+export default function Index() {
+  return;
 }
 
-Home.getInitialProps = async ({ query, res }) => {
+Index.getInitialProps = async ({ query, res }) => {
   console.log(query);
   console.log(process.env);
   console.log(process.env.SHOPIFY_API_KEY);
